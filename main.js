@@ -5,13 +5,29 @@ fetch(url2)
 .then(resultado =>{
     
     return resultado.json()
+}
+)}
+
+import myList from "./component/myList.js";
+
+let inputNamePokemon = document.querySelector('[name="entrada"]')
+let botonPk = document.querySelector("#idPokemon");
+
+document.addEventListener("DOMContentLoaded", () => {
+    myList.showFragmentQueryList();
+})
+
+botonPk.addEventListener('click', ()=>{
+    console.log('Se ha hecho click en el botón');
+
 })
 .then(resultado =>{
     console.log(resultado.sprites.back_default);
     console.log(resultado);
     imprimirpokemon(resultado)
 })
-}
+
+
 
 function imprimirpokemon(resultado) {
     let tipo = resultado.types[0].type.name
@@ -33,3 +49,11 @@ function imprimirpokemon(resultado) {
     `
     document.querySelector(`.pokemon`).appendChild(card)
 }
+
+
+/* 
+inputNamePokemon.addEventListener('input', (e) => {
+    let namePokemon = inputNamePokemon.value;
+    myList.showFragmentQueryList(namePokemon);
+}) */
+
